@@ -8,7 +8,7 @@ directory = os.path.join(dir_path)
 
 for root,dirs,files in os.walk(directory):
     for file in files:
-       if file.endswith(".txt"):
+       if file.endswith(".log"):
            f = open(dir_path+'/'+file, 'r')
            list = []
            csvreader = csv.reader(f)
