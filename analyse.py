@@ -17,9 +17,9 @@ def analyse(adj_error):
                 csvreader = csv.reader(f)
                 for row in csvreader:
                     list.append(int(re.findall(r'\d+', row[1].split(':')[1])[0])-adj_error)
-                print(u"{:s} - min: {:g}\u00b0C, max: {:g}\u00b0C,  mean: {:g}\u00b0C".format(file.split('.')[0],
+                print(u"{:s} - min: {:g}\u00b0C, max: {:g}\u00b0C,  mean: {:g}\u00b0C, median: {:g}\u00b0C".format(file.split('.')[0],
                                                                                               min(list), max(list),
-                                                                                              statistics.mean(list)))
+                                                                                              statistics.mean(list), statistics.median(list)))
 
                 f.close()
 
