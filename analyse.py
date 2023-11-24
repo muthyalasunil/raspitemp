@@ -10,7 +10,7 @@ def analyse(adj_error):
     directory = os.path.join(dir_path)
 
     for root, dirs, files in os.walk(directory):
-        for file in files:
+        for file in sorted(files):
             if file.endswith(".log"):
                 f = open(dir_path + '/' + file, 'r')
                 list = []
