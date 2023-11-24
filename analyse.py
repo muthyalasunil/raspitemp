@@ -3,7 +3,7 @@ import os
 import re
 import statistics
 import sys
-
+from datetime import datetime
 
 def analyse(adj_error):
     dir_path = "/home/admin/logs"
@@ -16,8 +16,12 @@ def analyse(adj_error):
                 list = []
                 csvreader = csv.reader(f)
                 for row in csvreader:
-                    list.append(int(re.findall(r'\d+', row[1].split(':')[1])[0])-adj_error)
-                print(u"{:s} - min: {:g}\u00b0C, max: {:g}\u00b0C,  mean: {:g}\u00b0C, median: {:g}\u00b0C".format(file.split('.')[0],
+                    	list.append(int(re.findall(r'\d+', row[1].split(':')[1])[0])-adj_error)
+               		
+                stat_info = os.stat(dir_path + '/' +file)
+                modification_time = datetime.fromtimestamp(stat_info.st_mtime)
+                date_part = modification_time.strftime("%Y-%m-%d")
+                print(u"{:s} - min: {:g}\u00b0C, max: {:g}\u00b0C,  mean: {:g}\u00b0C, median: {:g}\u00b0C".format(date_part,
                                                                                               min(list), max(list),
                                                                                               statistics.mean(list), statistics.median(list)))
 

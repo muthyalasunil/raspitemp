@@ -5,6 +5,6 @@ hostname -I >> /home/admin/logs/report.txt
 
 if [ "$(ping -c1 8.8.8.8)" ]
 then
-	mail -s "report" muthyalasunil@yahoo.com < /home/admin/logs/report.txt
+	mail -s "$(echo $mail_subject)" "$(echo $mail_to_list)" < /home/admin/logs/report.txt
 fi 
 
