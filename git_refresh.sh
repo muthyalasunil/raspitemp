@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git fetch
-git reset --hard HEAD
-git merge origin/main
+git fetch >> /dev/null
+git reset --hard HEAD >> /dev/null
+git merge origin/main >> /dev/null
 
