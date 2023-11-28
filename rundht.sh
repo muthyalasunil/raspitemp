@@ -1,6 +1,8 @@
 #!/bin/bash
 
 source /home/admin/.bashrc
+cd /home/admin/Adafruit_Python_DHT/Adafruit_DHT
+/home/admin/Adafruit_Python_DHT/Adafruit_DHT/git_refresh.sh
 
 /usr/bin/python /home/admin/Adafruit_Python_DHT/Adafruit_DHT/dhttest.py >> /home/admin/logs/$(date +'%d').log
 /usr/bin/python /home/admin/Adafruit_Python_DHT/Adafruit_DHT/analyse.py | tail -10 > /home/admin/logs/report.txt
