@@ -16,7 +16,7 @@ if __name__=="__main__":
 	url = 'http://IP_ADDRESS:80'
 	now = datetime.datetime.now()
 	log_file = open(sys.argv[2], "a")
-	err_file = open(sys.argv[3], "w")
+	err_file = open(sys.argv[3], "a")
 
 	if len(sys.argv) > 1:
 		url = url.replace('IP_ADDRESS', sys.argv[1])+'/temperature'

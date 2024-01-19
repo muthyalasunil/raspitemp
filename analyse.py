@@ -6,7 +6,7 @@ import sys
 from datetime import datetime
 
 def analyse(adj_error):
-    dir_path = "/home/admin/logs"
+    dir_path = "/home/admin/raspitemp/logs"
     directory = os.path.join(dir_path)
 
     for root, dirs, files in os.walk(directory):
@@ -16,8 +16,7 @@ def analyse(adj_error):
                 list = []
                 csvreader = csv.reader(f)
                 for row in csvreader:
-                    	list.append(int(re.findall(r'\d+', row[1].split(':')[1])[0])-adj_error)
-               		
+                        list.append(int(row[3].split(';')[1])-adj_error)
                 stat_info = os.stat(dir_path + '/' +file)
                 modification_time = datetime.fromtimestamp(stat_info.st_mtime)
                 date_part = modification_time.strftime("%Y-%m-%d")
