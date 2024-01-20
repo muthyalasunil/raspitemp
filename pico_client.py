@@ -28,7 +28,6 @@ if __name__=="__main__":
 		status, data = get_data(url.replace('IP_ADDRESS', '192.168.2.148')+'/temperature')    
 		if status == 200:
 			log_file.write(now.strftime("%Y-%m-%d %H:%M:%S, ") + data+"\n")
-	
 	except:
 		err_file.write(now.strftime("%Y-%m-%d %H:%M:%S, ") + 'error: '+url+'\n')
 	finally:
